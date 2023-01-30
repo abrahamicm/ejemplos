@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <style>
+      #canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+    <script>
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      let painting = false;
+
+      function startPainting(event) {
+        painting = true;
+        draw(event);
+      }
+
+      function stopPainting() {
+        painting = false;
+        ctx.beginPath();
+      }
+
+      function draw(event) {
+        if (!painting) return;
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+        ctx.lineTo(event.clientX, event.clientY);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(event.clientX, event.clientY);
+      }
+
+      canvas.addEventListener('mousedown', startPainting);
+      canvas.addEventListener('mouseup', stopPainting);
+      canvas.addEventListener('mouseout', stopPainting);
+      canvas.addEventListener('mousemove', draw);
+    </script>
+  </body>
+</html>

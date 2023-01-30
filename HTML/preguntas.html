@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <style>
+      .question {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 50px;
+      }
+
+      .options {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .option {
+        margin: 0 10px;
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: lightgray;
+      }
+
+      .option:hover {
+        background-color: gray;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="question">
+      ¿Cuál es el planeta más grande del sistema solar?
+    </div>
+
+    <div class="options">
+      <div class="option" onclick="checkAnswer(this, false)">Marte</div>
+      <div class="option" onclick="checkAnswer(this, false)">Tierra</div>
+      <div class="option" onclick="checkAnswer(this, true)">Júpiter</div>
+      <div class="option" onclick="checkAnswer(this, false)">Venus</div>
+    </div>
+
+    <script>
+      function checkAnswer(element, isCorrect) {
+        if (isCorrect) {
+          element.style.backgroundColor = 'green';
+          element.style.color = 'white';
+          alert('¡Respuesta correcta!');
+        } else {
+          element.style.backgroundColor = 'red';
+          element.style.color = 'white';
+          alert('Respuesta incorrecta');
+        }
+      }
+    </script>
+  </body>
+</html>
